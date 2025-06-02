@@ -1,0 +1,38 @@
+def convert_temperature(value, unit):
+    """
+    Convert temperature between Fahrenheit and Celsius.
+
+    Parameters:
+    value (float): The temperature to convert.
+    unit (str): The unit of the input temperature ('F' or 'C').
+
+    Returns:
+    float: The converted temperature, rounded to 2 decimal places.
+    """
+    if unit.upper() == 'F':
+        # Convert Fahrenheit to Celsius
+        converted = (value - 32) * 5 / 9
+    elif unit.upper() == 'C':
+        # Convert Celsius to Fahrenheit
+        converted = (value * 9 / 5) + 32
+    else:
+        return "Invalid unit. Use 'C' for Celsius or 'F' for Fahrenheit."
+
+    return round(converted, 2)
+
+# Main program
+try:
+    temp = float(input("Enter the temperature value: "))
+    unit = input("Enter the unit of the input temperature (C or F): ").strip()
+
+    result = convert_temperature(temp, unit)
+
+    if isinstance(result, str):
+        print(result)  # Error message
+    else:
+        new_unit = 'Fahrenheit' if unit.upper() == 'C' else 'Celsius'
+        print(f"The converted temperature is: {result}° {new_unit}")
+
+except ValueError:
+    print("Please enter a valid number for temperature.")
+
