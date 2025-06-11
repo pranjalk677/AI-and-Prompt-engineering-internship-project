@@ -1,0 +1,14 @@
+def is_palindrome(word):
+    # Convert the word to lowercase for case-insensitive comparison
+    word = word.lower()
+    # Check if the word is the same forwards and backwards
+    return word == word[::-1]
+
+# Get word input from the user
+user_word = input("Enter a word to check if it's a palindrome: ")
+
+# Check and print result
+if is_palindrome(user_word):
+    print(f"'{user_word}' is a palindrome.")
+else:
+    print(f"'{user_word}' is not a palindrome.")
