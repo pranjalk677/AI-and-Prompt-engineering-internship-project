@@ -1,0 +1,29 @@
+def count_word_frequencies(text):
+    # Normalize the text to lowercase and split into words
+    words = text.lower().split()
+    
+    # Create a dictionary to hold word counts
+    word_count = {}
+    
+    # Count the frequency of each word
+    for word in words:
+        # Remove punctuation from the word
+        word = word.strip('.,!?";()[]{}')
+        if word:  # Check if the word is not empty
+            if word in word_count:
+                word_count[word] += 1
+            else:
+                word_count[word] = 1
+    
+    return word_count
+
+# Get text input from the user
+user_input = input("Please enter the text: ")
+
+# Count word frequencies
+frequencies = count_word_frequencies(user_input)
+
+# Print the word frequencies
+print("\nWord Frequencies:")
+for word, count in frequencies.items():
+    print(f"{word}: {count}")
